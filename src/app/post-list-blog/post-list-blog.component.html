@@ -1,0 +1,21 @@
+<li style="list-style-type: none" [ngClass]="{'list-group-item': true,
+                'list-group-item-success': postValueLoveIts === 'positif',
+                'list-group-item-danger': postValueLoveIts === 'négatif'}">
+   <div style="width:20px; height :20px; background-color: rgba(255,0,0,0.5);" *ngIf="postValueLoveIts === 'négatif'"></div>
+    <div class="Blog" style="background-color: rgba(102,205,170,0.5);">
+        <div class="entete">
+            <h4 [ngStyle]="{color:getColor()}"> {{ postTitre }}  </h4>
+            <p>{{ postCreatedAt | date:'short'}}</p>
+        </div>
+        <div class="contenuBlog">
+            <p [ngStyle]="{color:getColor()}"> {{postContent}}</p> 
+            <p>{{ postLoveIts }}</p>
+            <button type="button" class="btn btn-success"
+              [disabled]="!isAuth" 
+              (click)="onLoveIt()">J'aime</button>
+            <button typ="button" class="btn btn-danger" 
+              [disabled]="!isAuth" 
+              (click)="onLoveIt()">Je n'aime pas</button>
+        </div>
+    </div>
+</li>
